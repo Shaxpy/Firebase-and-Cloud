@@ -4,7 +4,7 @@ const data = require("./data.json");
 const collectionKey = "Stuff"; // name of the collection
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "DBMS url" //  Can't reveal that here!:)
+  databaseURL: "DBMS " //  Can't reveal that here!:)
 });
 const firestore = admin.firestore();
 const settings = {timestampsInSnapshots: true};
