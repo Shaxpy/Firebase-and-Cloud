@@ -1,8 +1,10 @@
 
 ## Firebase-and-Cloud
 I am trying to learn whatever I can about Cloud Computing to keep up with the current scenario. 
-I will use the knowledge gained to deploy my ML models on the web to show actual results from data retrieved from Firebase!
+I will use the knowledge gained to deploy my ML models on the web to show actual results from data retrieved from Firebase.
+
 Because its fun!
+
 #Also helps me explore real time processing of data.
 
 How to use this repo:
