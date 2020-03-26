@@ -1,10 +1,10 @@
 const admin = require('./node_modules/firebase-admin');
 const serviceAccount = require("./serviceAccountKey.json");
 const data = require("./data.json");
-const collectionKey = "entities"; //name of the collection
+const collectionKey = "Stuff"; //name of the collection
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fit-aloe-263917.firebaseio.com"
+  databaseURL: "DBMS url" // Can't reveal that here! :)
 });
 const firestore = admin.firestore();
 const settings = {timestampsInSnapshots: true};
