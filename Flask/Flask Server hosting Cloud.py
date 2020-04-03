@@ -1,4 +1,6 @@
-#FIRESTORE Cloud data being sent through flask server to LocalHost!
+#FIRESTORE Cloud data being sent through flask server to LocalHost! 
+##Using Query 'GET'
+
 import os
 
 from firebase_admin import credentials, firestore, initialize_app
