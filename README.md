@@ -7,7 +7,7 @@ Because its fun!
 
 #Also helps me explore real time processing of data.
 
-How to use this repo:
+How to use upload code to Firestore:
 1. Download the repo and install Nodejs on your system, add the data as .json file
 2. Add your database url in the code of uploader.js ,Use [npm install firestore-export-import] 
 to install the dependencies of Nodejs
