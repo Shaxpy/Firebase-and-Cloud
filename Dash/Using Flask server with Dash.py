@@ -1,4 +1,4 @@
-#This is an attempt
+#This is an attempt to show graph of data recovered from FIRESTORE with FLask server using the GET query API
 import dash
 import dash_core_components as dcc
 import plotly.graph_objs as go
