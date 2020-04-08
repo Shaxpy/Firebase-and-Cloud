@@ -5,7 +5,7 @@ I will use the knowledge gained to deploy my ML models on the web to show actual
 
 Because its fun!
 
-#Also helps me explore real time processing of data.
+Also helps me explore Real time processing of data
 
 How to use this repo to upload code to Firestore:
 1. Download the repo and install Nodejs on your system, add the data as .json file
