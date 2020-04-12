@@ -1,6 +1,6 @@
 
 ## Firebase-and-Cloud
-I am trying to learn whatever I can about Client side and integrating with Cloud Firestore to keep up with the current scenario. 
+I am trying to learn whatever I can about Client Side(a little bit of FLask and REST API) and integrating with Cloud Firestore to keep up with the current scenario. 
 I will use the knowledge gained to deploy my ML models on the web to show actual results from data retrieved from Firebase.
 
 Because its fun!
