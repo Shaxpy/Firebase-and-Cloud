@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  </head>
+	<style>
+		.container{
+			max-width: 1100px;
+			margin: auto;   
+			overflow: hidden;
+		}
+		body{
+			background-color:white;
+			font-family: 'Source Code Pro', monospace;
+		}
+		h1{
+			color: Black;
+			text-align: center;
+		}
+		p{ 
+			color: yellow;
+			text-align:center;
+		}
+	</style>
+    <title>Data</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.11.1" > </script>
+ 
+  </body>
+	<h1>Time Series Forecasting </h1>
+	
+    <canvas id="myChart" width="400" height="200"></canvas>
+    <script>
+
+window.addEventListener('load', setup);
+async function setup() {
+    window.addEventListener('load', setup);
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const globalTemps = await getData();
+    window.myLine = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: globalTemps.date,
+            datasets: [{
+                label: 'Predicted',
+                fill: false,
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: globalTemps.data,
+            }, {
+                label: 'Actual',
+                backgroundColor: 'blue',
+                borderColor: 'blue',
+                data: globalTemps.pm25,
+                fill: false,
+            }]
+        },
+        options: {
+            responsive: true,
+           
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'PM25'
+                    }
+                }]
+            }
+        }
+    });
+
+
+}
+async function getData() {    
+    const response = await fetch('preproc.csv');
+    const data = await response.text();
+    const date = [];
+    const pm25 = [];
+    const rows = data.split('\n').slice(1);
+    rows.forEach(row => {
+    const cols = row.split(',');
+      date.push(cols[0]);
+      pm25.push(14 + parseFloat(cols[1]));
+    });
+    return { date, pm25 };
+  }
+  
+    </script>
+</body>
+</html>
