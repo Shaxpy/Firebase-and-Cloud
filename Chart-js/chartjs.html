@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<style>
+		.container{
+			max-width: 1100px;
+			margin: auto;   
+			overflow: hidden;
+		}
+		body{
+			background-color:white;
+			font-family: 'Source Code Pro', monospace;
+		}
+		h1{
+			color: Black;
+			text-align: center;
+		}
+		p{ 
+			color: yellow;
+			text-align:center;
+		}
+	</style>
+    <title>Data</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+ 
+  <body>
+	<h1>Actual Data </h1>
+	
+    <canvas id="myChart" width="400" height="200"></canvas>
+
+    <script>
+   window.addEventListener('load', setup);
+
+      async function setup() {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const globalTemps = await getData();
+        const myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: globalTemps.date,
+            datasets: [
+              {
+                label: 'PM25',
+                data: globalTemps.pm25,
+                fill: false,
+                borderColor: 'rgba(2, 2, 222, 2)',
+                backgroundColor: 'rgba(2, 2, 222, 1)',
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {}
+        });
+      }
+
+      async function getData() {
+
+        const response = await fetch('device41.csv');
+        const data = await response.text();
+        const date = [];
+        const pm25 = [];
+        const rows = data.split('\n').slice(1);
+        rows.forEach(row => {
+        const cols = row.split(',');
+          date.push(cols[0]);
+          pm25.push(14 + parseFloat(cols[1]));
+        });
+        return { date, pm25 };
+	  }
+	  
+    </script>
+  </body>
+</html>
